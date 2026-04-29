@@ -91,4 +91,10 @@ def main():
             print(f"🗑️  Task [{task_id}] successfully deleted.")
             
         except ValueError as e:
-            print(f"Error: {e}")          
+            print(f"Error: {e}")
+
+# Help -----------------------------------------------------------------
+
+    elif command == "help":
+        show_help()  
+        
