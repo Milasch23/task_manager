@@ -30,20 +30,35 @@ def main():
     
     command = sys.argv[1].lower()
     
+# Add -----------------------------------------------------------------
+    
     if command == "add":
         if len(sys.argv) < 3:
             print("Error: must write the task title.")
             print(" Eg. python main.py add 'Buy milk' ")
             return
     
-    title = sys.argv[2]
+        title = sys.argv[2]
         
-    try:
-        task = add_task(title)
-        print(f"Task added: [{task['id']}] {task['title']}")
-    except ValueError as e:
-        print(f"Error: {e}")
+        try:
+            task = add_task(title)
+            print(f"Task added: [{task['id']}] {task['title']}")
+        except ValueError as e:
+            print(f"Error: {e}")
 
+# List ----------------------------------------------------------------
 
+    elif command == "list":
+        tasks = list_tasks()
 
+        if not tasks:
+            print("No tasks yet. Add one with the 'add' command!")
+            return
+        
+        print("\n📋 Your tasks:\n")
+        for task in tasks:
+            print_task(task)
+        print()
+        
+        
     
