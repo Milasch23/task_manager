@@ -77,3 +77,18 @@ def main():
         except ValueError as e:
             print(f"Error: {e}")
 
+# Delete ---------------------------------------------------------------
+
+    elif command == "delete":
+        if len(sys.argv) < 3:
+            print("❌ Error: You must enter the task ID.")
+            print("Eg. python main.py delete 1")
+            return
+        
+        try:
+            task_id = int(sys.argv[2])
+            delete_task(task_id)
+            print(f"🗑️  Task [{task_id}] successfully deleted.")
+            
+        except ValueError as e:
+            print(f"Error: {e}")          
