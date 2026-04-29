@@ -59,6 +59,21 @@ def main():
         for task in tasks:
             print_task(task)
         print()
+          
+# Complete -------------------------------------------------------------
+
+    elif command == "complete":
+        if len(sys.argv) < 3:
+            print("Error: You must enter the task ID")
+            print("Eg.: python main.py complete 1")
+            return
         
+        try:
+            task_id = int(sys.argv[2])
+            task = complete_task(task_id)
+            
+            print(f"✅ Task [{task['id']}] marked as completed: {task['title']}")
         
-    
+        except ValueError as e:
+            print(f"Error: {e}")
+
